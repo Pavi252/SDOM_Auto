@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-08-06T14:19:30",
+  "bc": "BC : DiaApl / 358.25.0_H2CU_8_DEV_1; 0",
+  "steps": {
+    "fc_into_gc": {
+      "container": "GC : InfraCmbDrv / 358.3.0; 0",
+      "old_child": "FC-ARB : EcuDiag_InjMngt / 358.1.0; 2",
+      "new_child": "FC-ARB : EcuDiag_InjMngt / 358.2.0; 0",
+      "ok": false,
+      "status_code": 400,
+      "detail": "<CreateError xmlns=\"http://schemas.datacontract.org/2004/07/eASEEService\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><ErrorInfo>Unknown reason</ErrorInfo></CreateError>"
+    },
+    "gc_into_bc": {
+      "container": "BC : DiaApl / 358.25.0_H2CU_8_DEV_1; 0",
+      "old_child": "GC : InfraCmbDrv / 358.2.0; 0",
+      "new_child": "GC : InfraCmbDrv / 358.3.0; 0",
+      "ok": true,
+      "status_code": 200,
+      "detail": "<?xml version=\"1.0\" encoding=\"utf-8\"?><string/>"
+    }
+  },
+  "overall_success": false
+}

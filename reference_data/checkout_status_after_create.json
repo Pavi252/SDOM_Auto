@@ -1,0 +1,29 @@
+{
+  "ifd_id": "RQONE04873498",
+  "reference_json": "C:\\Users\\WVR2KOR\\Documents\\Com-handling\\IOCBI_Code_Generator\\GITHUB\\IOCBI_V2\\SDOM_Auto\\reference_data\\sdom_checkout_reference_RQONE04873498.json",
+  "objects": {
+    "fc": {
+      "base_fullname": "FC-ARB : EcuDiag_InjMngt / 358.1.1; 4",
+      "requested_fullname": "FC-ARB : EcuDiag_InjMngt / 358.2.1; 0",
+      "matched_fullname": "FC-ARB : EcuDiag_InjMngt / 358.2.1; 0",
+      "checked_out": true
+    },
+    "bc": {
+      "base_fullname": "BC : DiaApl / 358.25.0_H2CU_8; 0",
+      "requested_fullname": "BC : DiaApl / 358.25.0_H2CU_8_DEV_1; 0",
+      "matched_fullname": "BC : DiaApl / 358.25.0_H2CU_8_DEV_1; 0",
+      "checked_out": true
+    },
+    "pver": {
+      "base_fullname": "PVER : BMW_H2CU / H2CU_31A200812B; 1",
+      "requested_fullname": "PVER : BMW_H2CU / H2CU_31A200812B_stage1; 1",
+      "matched_fullname": "PVER : BMW_H2CU / H2CU_31A200812B_STAGE1; 1",
+      "checked_out": true
+    }
+  },
+  "summary": {
+    "checked_objects": 3,
+    "present_objects": 3,
+    "all_present": true
+  }
+}

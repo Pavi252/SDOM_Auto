@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+checkout_workspace/
+eASEE-oslc-proxy_user_manual*.pdf
+
+*.log

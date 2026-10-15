@@ -1,0 +1,49 @@
+SDOM Integration Open Points (Future Reference)
+Last updated: 2026-08-06
+
+Scope
+- Keep known limitations, unresolved API options, and proven workarounds for FC/BC/PVER integration.
+
+1) FC pure insert (no replacement) is not yet solved
+- Goal:
+  Insert an FC into GC/MC/BC without replacing an existing child.
+- Current status:
+  Not achieved with currently known/probed APIs.
+- Probes executed:
+  a) POST /configuration/replacechildren with empty oldVersion and valid newVersion
+     -> HTTP 400 (Unknown reason), no child inserted.
+  b) POST /configuration/checkoutversionex with <Relations> for relation-based insert
+     -> On checked-out root: HTTP 400 (Object is already checked out)
+     -> On available root (release checkout payload + relation): HTTP 400 (server fault)
+  c) POST /configuration/savecond with parent+child
+     -> HTTP 415, no relation/child insertion.
+- Working fallback:
+  Continue with replacement-based flow (replacechildren) on correct hierarchy line.
+
+2) Relation metadata for container-child insert is not reliably discoverable
+- /configuration/related returns release/test relation entries but did not provide a proven
+  insertable parent-child relation pattern for GC/MC/BC FC attachment in this workflow.
+- No dedicated "add child" endpoint (e.g., addchildren/insertchildren) has been confirmed.
+
+3) Live-state resolution remains mandatory before mutation calls
+- Local/generated JSON can be stale for revision/fullname.
+- Must resolve latest fullnames from SDOM just before replace/mutation.
+- This previously fixed BC->PVER failures (NO-DATA-FOUND due to stale revision).
+
+4) FC hierarchy integration must remain topology-aware
+- FC may be under GC/MC rather than direct BC child.
+- Required sequence (proven):
+  - Identify matching parent line (GC/MC/BC) from predecessor/history + current BC tree.
+  - Create/reuse appropriate parent release line.
+  - Replace FC in parent.
+  - Relink parent under BC when needed.
+
+5) Safe operational policy (current)
+- Use replacement flow as primary supported method.
+- Do not attempt insert-only in normal automation until a verified API contract is found.
+- If insertion is retried in future, run controlled probes first and verify via /configuration/children.
+
+Candidate future investigations
+- Revisit OSLC/UAES APIs if access/permissions expand.
+- Validate whether hierarchicalcheckout can be adapted for controlled relation creation.
+- Check for newer SDOM proxy manual/version that explicitly documents child insertion.

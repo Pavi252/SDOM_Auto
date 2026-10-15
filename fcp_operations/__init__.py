@@ -1,0 +1,2 @@
+"""FCP checkout operations."""
+
